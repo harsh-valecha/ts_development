@@ -53,6 +53,7 @@ dist/
 ### 3. Editor setup (VS Code)
 
 Install these extensions:
+
 - **Error Lens** — shows type errors inline
 - **Prettier** — code formatter
 - **GitLens** — git context
@@ -62,7 +63,7 @@ Enable format-on-save for TypeScript: `Cmd+Shift+P` → "Preferences: Open User 
 ```jsonc
 {
   "editor.formatOnSave": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
 }
 ```
 
@@ -98,11 +99,11 @@ Make a tiny throwaway script in `/tmp` (NOT in this repo — it's just practice)
 
 ## Done checklist
 
-- [ ] `node --version` works and is ≥ 22.6
-- [ ] `npx tsc --version` works
-- [ ] `node hello.ts` runs a `.ts` file natively
-- [ ] `git init` done at repo root, `.gitignore` created, first commit made
-- [ ] VS Code shows inline type errors and formats on save
+- [✅] `node --version` works and is ≥ 22.6
+- [✅] `npx tsc --version` works
+- [✅] `node hello.ts` runs a `.ts` file natively
+- [✅] `git init` done at repo root, `.gitignore` created, first commit made
+- [✅] VS Code shows inline type errors and formats on save
 
 ## When to move on
 
