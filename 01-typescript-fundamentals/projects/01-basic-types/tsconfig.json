@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "strict": true,
+    "noEmit": true,            // we run TS directly; tsc is only for checking
+    "skipLibCheck": true,
+    "types": ["node"]
+  },
+  "include": ["src"]
+}
