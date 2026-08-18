@@ -98,3 +98,67 @@ const appSettings = {
 } as const;
 
 // appSettings.theme = "Light";  shows typescript error but does updates it
+
+// string literal union types
+type Status = "pending" | "active" | "done";
+// let currentStatus: Status = "archive"; -- not allowed error comes
+
+// switching between literal unions
+function getStatusBadgeColor(status: Status): string {
+  switch (status) {
+    case "pending":
+      return "yellow";
+    case "active":
+      return "green";
+    case "done":
+      return "blue";
+  }
+}
+
+// console.log(getStatusBadgeColor("active"));
+
+// type narrowing - example narrowing the primitive type at runtime
+function formatInput(val: string | number): string {
+  if (typeof val === "string") {
+    return val.trim().toUpperCase();
+  }
+  return val.toFixed(2);
+}
+
+console.log(formatInput("2345"));
+console.log(formatInput("hey bruh"));
+
+// checking if a specific property exists in a object using in
+type Admin = { name: string; permissions: string[] };
+type User = { name: string; email: string };
+
+function printDetails(person: Admin | User) {
+  if ("permissions" in person) {
+    console.log(`Admin with ${person.permissions.length} permissions`);
+  } else {
+    console.log(`user's email ${person.email}`);
+  }
+}
+
+printDetails({ name: "Jaktap", permissions: ["hullad", "gullad"] });
+printDetails({ name: "Kamlesh", email: "Kamleshchattu@gmail.com" });
+
+// discriminated union - shared property in two types union
+type SuccessState = { kind: "success"; data: string };
+type ErrorState = { kind: "Error"; data: string };
+type State = ErrorState | SuccessState;
+
+function handleResponse(state: State) {
+  switch (state.kind) {
+    case "success":
+      return `Loaded: ${state.data}`;
+    case "Error":
+      return `Loaded: ${state.data}`;
+  }
+}
+
+let passState: State = { kind: "success", data: "Total Pass" };
+let failState: State = { kind: "Error", data: "Error 404" };
+
+console.log(handleResponse(passState));
+console.log(handleResponse(failState));
