@@ -1,5 +1,6 @@
 // primitives and inference
 // let ts infer - when initialzing primitives directly type defining is redundant
+
 // typescript infers types : string , integer and boolean automatically
 let name = "Kamlesh Chaturvedi";
 let marks = 200;
@@ -125,8 +126,8 @@ function formatInput(val: string | number): string {
   return val.toFixed(2);
 }
 
-console.log(formatInput("2345"));
-console.log(formatInput("hey bruh"));
+// console.log(formatInput("2345"));
+// console.log(formatInput("hey bruh"));
 
 // checking if a specific property exists in a object using in
 type Admin = { name: string; permissions: string[] };
@@ -160,5 +161,34 @@ function handleResponse(state: State) {
 let passState: State = { kind: "success", data: "Total Pass" };
 let failState: State = { kind: "Error", data: "Error 404" };
 
-console.log(handleResponse(passState));
-console.log(handleResponse(failState));
+// console.log(handleResponse(passState));
+// console.log(handleResponse(failState));
+
+type user = {
+  name: string;
+  age?: number; // age is optional
+};
+
+const user1: user = { name: "Kamlesh" };
+const user2: user = { name: "layla", age: 23 };
+
+//optional parameter
+function greet(name: string, title?: string) {
+  return `hello ${title ? title + " " : ""}${name}`;
+}
+
+console.log(greet(user1.name));
+console.log(greet(user2.name, "Jing"));
+
+// nullable and undefined types
+type Profile = {
+  bio: string | null;
+  avatar: string;
+  middleName: string | undefined;
+};
+
+const trailer: Profile = {
+  bio: null,
+  avatar: "bhoola",
+  middleName: undefined,
+};
